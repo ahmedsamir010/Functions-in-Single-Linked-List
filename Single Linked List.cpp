@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include<iostream>
 using namespace std;
 struct node {
     int data;
@@ -20,20 +20,24 @@ int main()
 {
     linked s;
     s.insertfirst(10);
-     s.insertfirst(50);
-    s.display();// 50  40  30  20  10
-    s.insertpos(90, 5);
-      s.insertlast(70);
-    s.insertfirst(50);
-      s.display();// 50 50 40 90 30 20 10 70
-      s.deltfirst();
-    s.deltpos(3);
-    s.deltlast();
+    s.insertfirst(20);
+   /* s.insertfirst(30);
+    s.insertfirst(40);*/
+    // s.insertfirst(50);
+   //  s.display();// 50  40  30  20  10
+    s.insertpos(90, 20);
+    //  s.insertlast(70);
+    //  s.insertfirst(50);
+     // s.display();// 50 50 40 90 30 20 10 70
+     // s.deltfirst();
+     // s.deltpos(3);
+   // s.deltlast();
     s.display();//50  40 30  20  10  
-    s.insertpos(90, 10);
-    s.display();
+   // s.insertpos(90, 10);
+   // s.display();
     return 0;
 }
+
 void linked::insertfirst(int value)
 {
     node* newNode = new node;
@@ -49,6 +53,7 @@ void linked::insertfirst(int value)
     }
 
 }
+
 void linked::insertlast(int value)
 {
     node* newNode = new node;
@@ -82,14 +87,13 @@ void linked::insertpos(int value, int pos)
         pre = cur;
         cur = cur->next;
     }
- if (cur == NULL) {
-        cout << "Error" << endl;
-    return;
-    }else{
-        pre->next = newNode;
+        if (cur == NULL) {
+      //  cout << "Error" << endl;
+       return;
+    }
+    pre->next = newNode;
     newNode->next = cur;
 }
-    }
 void linked::deltfirst()
 {
     node* temp = new node;
