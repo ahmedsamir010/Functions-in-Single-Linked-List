@@ -22,7 +22,7 @@ int main()
     linked s;
     s.insertfirst(10);
     s.insertfirst(20);
-    s.deltpos(1);
+    s.deltpos(5);
     s.display();
     return 0;
 }
@@ -72,10 +72,10 @@ void linked::insertpos(int value, int pos)
     for (int i = 1;i < pos and cur != NULL;i++) {
         pre = cur;
         cur = cur->next;
-    }
-    if (cur == NULL) {
-        cout << "Error" << endl;
-        return;
+        if (cur == NULL) {
+            cout << "Error" << endl;
+            return;
+        }
     }
     pre->next = newNode;
     newNode->next = cur;
@@ -114,14 +114,14 @@ void linked::deltpos(int pos)
         delete cur;
     }
     else {
-        for (int i = 1;i < pos and cur!=NULL;i++)
+        for (int i = 1;i < pos;i++)
         {
             pre = cur;
             cur = cur->next;
-        }
-        if (cur == NULL) {
-            //cout << "Error";
-            return;
+            if (cur == NULL) {
+                cout << "Error"<<endl;
+                return;
+            }
         }
         pre->next = cur->next;
         delete cur;
