@@ -69,7 +69,7 @@ void linked::insertpos(int value, int pos)
         head = newNode;
         return;
     }
-    for (int i = 1;i < pos and cur != NULL;i++) {
+    for (int i = 1;i < pos ;i++) {
         pre = cur;
         cur = cur->next;
         if (cur == NULL) {
